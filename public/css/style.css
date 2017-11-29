@@ -36,6 +36,18 @@ body, .container  {
     background-color: #1D80A0;
 }
 
+.anime-info {
+    background-color: #262525;
+    color: #93928F;
+    padding: 15px 0;
+}
+.anime-info h1 {
+    color: #b1b0ad;
+}
+.anime-info div {
+    margin-bottom: 25px;
+}
+
 .center {
     margin: 15px auto;
 }
@@ -64,7 +76,6 @@ body, .container  {
 
 tr:hover th[scope="row"] {
     color: #ff5d71!important;
-<<<<<<< HEAD
 }
 
 
@@ -92,6 +103,4 @@ footer {
     background-color: #212529;
     color: #93928F;
     margin-top: 25px;
-=======
->>>>>>> master
 }

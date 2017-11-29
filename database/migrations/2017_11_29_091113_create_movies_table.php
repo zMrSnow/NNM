@@ -19,18 +19,25 @@ class CreateMoviesTable extends Migration
             $table->string("year");
             $table->string("description");
             $table->string("img");
-            $table->string("type");
-            $table->integer("total_episodes");
+            $table->integer("type_id")->unsigned();
+            $table->integer("total_episodes")->unsigned();
             $table->date("start")->nullable();
             $table->date("stop")->nullable();
             $table->string("akihabara")->nullable();
-            $table->integer("status_id")->unsigned()->unique();
+            $table->integer("status_id")->unsigned();
             $table->timestamps();
+
+            $table->foreign("type_id")
+                ->references("id")
+                ->on("types")
+                ->onDelete("cascade");
 
             $table->foreign("status_id")
                 ->references("id")
                 ->on("statuses")
                 ->onDelete("cascade");
+
+
         });
     }
 

@@ -20,9 +20,11 @@ class Movie extends Model
 
 
     public function getStatus() {
-        return $this->belongsTo(Status::class, "id");
+        return $this->belongsTo(Status::class, "status_id");
     }
-
+    public function getType() {
+        return $this->belongsTo(Type::class, "type_id");
+    }
     public function getGenres() {
         return $this->belongsToMany(Genre::class)->withPivot("movie_id", "genre_id");
     }

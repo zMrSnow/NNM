@@ -20,56 +20,48 @@
     <div class="container-fluid">
         <table class="table table-dark table-hover table-edited">
             <thead>
-            <tr>
-                <th style="width: 74%;">Názov anime</th>
+            <tr class="text-left">
+                <th style="width: 70%;">Názov anime</th>
                 <th style="width: 6%;">Rok</th>
                 <th style="width: 6%;">Preložené</th>
                 <th style="width: 8%;">Typ</th>
-                <th style="width: 6%;">Stav</th>
+                <th style="width: 10%;">Stav</th>
             </tr>
             </thead>
         </table>
+        <?php $leater = 'A'; ?>
+        @for($i = 0; $i < 26; $i++)
+            @if($leater =="F" || $leater == "I" || $leater == "N")
+                <div class="card text-center anime-pismenka hide-overflow-y">
+                    <div class="card-header anime-pismenka">
+                        <strong>
+                            {{$leater}}
 
+                        </strong>
+                    </div>
+                </div>
 
-        <div class="card text-center anime-pismenka">
-            <div class="card-header anime-pismenka">
-                <strong>
-                    N
-                </strong>
-            </div>
-        </div>
+                <table class="table table-dark table-hover table-edited">
+                    <tbody>
+                    @forelse($animes as $anime)
 
-        <table class="table table-dark table-hover table-edited">
-            <tbody>
-            <tr>
-                <th scope="row" style="width: 74%; color: #899496;">Natsume Yuujinchou Roku</th>
-                <td style="width: 6%; color: #1D80A0;">2017</td>
-                <td style="width: 6%; color: #CCC20D;">11/15</td>
-                <td style="width: 8%;">Tv Séria</td>
-                <td style="width: 6%; color: #33CC08;">Prebieha</td>
-            </tr>
-            </tbody>
-        </table>
+                        @if($anime->title[0] == $leater)
+                            <tr class="clickable-row text-left" data-href="{{route("anime.show", $anime->id)}}">
+                                <th scope="row" style="width: 70%; color: #899496;">{{$anime->title}}</th>
+                                <td style="width: 6%; color: #1D80A0;">{{$anime->year}}</td>
+                                <td style="width: 6%; color: #CCC20D;">?/{{$anime->total_episodes}}</td>
+                                <td style="width: 8%;">{{$anime->getType->name}}</td>
+                                <td style="width: 10%; color: #33CC08;">{{$anime->getStatus->name}}</td>
+                            </tr>
+                        @endif
+                    @empty
 
-
-        <table class="table table-dark table-hover table-edited">
-            <tbody>
-            @forelse($animes as $anime)
-
-                <tr class="clickable-row" data-href="{{route("front.home")}}">
-                    <th scope="row" style="width: 74%; color: #899496;">{{$anime->title}}</th>
-                    <td style="width: 6%; color: #1D80A0;">{{$anime->year}}</td>
-                    <td style="width: 6%; color: #CCC20D;">11/15</td>
-                    <td style="width: 8%;">{{$anime->typ}}</td>
-                    <td style="width: 6%; color: #33CC08;">{{$anime->getStatus->name}}</td>
-                </tr>
-
-            @empty
-
-            @endforelse
-            </tbody>
-        </table>
-
+                    @endforelse
+                    </tbody>
+                </table>
+            @endif
+            <?php $leater++; ?>
+        @endfor
 
     </div>
 
@@ -78,8 +70,8 @@
 @section("js")
 
     <script>
-        jQuery(document).ready(function($) {
-            $(".clickable-row").click(function() {
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
                 window.location = $(this).data("href");
             });
         });
