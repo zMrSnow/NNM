@@ -22,10 +22,13 @@ class CreateMoviesTable extends Migration
             $table->date("start")->nullable();
             $table->date("stop")->nullable();
             $table->string("akihabara")->nullable();
-            $table->integer("status_id");
+            $table->integer("status_id")->unsigned()->unique();
             $table->timestamps();
 
-            $table->foreign("status_id")->references("id")->on("statuses")->onDelete("cascade");
+            $table->foreign("status_id")
+                ->references("id")
+                ->on("statuses")
+                ->onDelete("cascade");
         });
     }
 

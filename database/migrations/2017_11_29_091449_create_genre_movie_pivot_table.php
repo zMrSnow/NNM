@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class GenreMoviePivot extends Migration
+class CreateGenreMoviePivotTable extends Migration
 {
     /**
      * Run the migrations.
