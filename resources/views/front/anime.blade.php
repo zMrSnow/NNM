@@ -51,7 +51,39 @@
             </tbody>
         </table>
 
+
+        <table class="table table-dark table-hover table-edited">
+            <tbody>
+            @forelse($animes as $anime)
+
+                <tr class="clickable-row" data-href="{{route("front.home")}}">
+                    <th scope="row" style="width: 74%; color: #899496;">{{$anime->title}}</th>
+                    <td style="width: 6%; color: #1D80A0;">{{$anime->year}}</td>
+                    <td style="width: 6%; color: #CCC20D;">11/15</td>
+                    <td style="width: 8%;">{{$anime->typ}}</td>
+                    <td style="width: 6%; color: #33CC08;">{{$anime->getStatus->name}}</td>
+                </tr>
+
+            @empty
+
+            @endforelse
+            </tbody>
+        </table>
+
+
     </div>
+
+@endsection
+
+@section("js")
+
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
 
 @endsection
 

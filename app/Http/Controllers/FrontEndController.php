@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Movie;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -11,6 +12,7 @@ class FrontEndController extends Controller
     }
 
     public function anime() {
-        return view("front.anime");
+        $animes = Movie::all();
+        return view("front.anime", compact("animes"));
     }
 }

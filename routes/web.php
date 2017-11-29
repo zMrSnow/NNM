@@ -13,3 +13,4 @@
 
 Route::get('/', "FrontEndController@home")->name("front.home");
 Route::get('/anime', "FrontEndController@anime")->name("front.anime");
+

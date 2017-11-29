@@ -19,6 +19,8 @@ class CreateMoviesTable extends Migration
             $table->string("year");
             $table->string("description");
             $table->string("img");
+            $table->string("type");
+            $table->integer("total_episodes");
             $table->date("start")->nullable();
             $table->date("stop")->nullable();
             $table->string("akihabara")->nullable();
