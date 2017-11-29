@@ -8,7 +8,7 @@ class Movie extends Model
 {
 
     protected $fillable = ["title", "year", "description", "img", "type", "total_episodes", "start",
-        "stop", "akihabara", "status_id"];
+        "stop", "akihabara", "csfd", "status_id"];
 
 
     public function getTitleAttribute($value) {

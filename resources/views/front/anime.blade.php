@@ -49,7 +49,7 @@
                             <tr class="clickable-row text-left" data-href="{{route("anime.show", $anime->id)}}">
                                 <th scope="row" style="width: 70%; color: #899496;">{{$anime->title}}</th>
                                 <td style="width: 6%; color: #1D80A0;">{{$anime->year}}</td>
-                                <td style="width: 6%; color: #CCC20D;">?/{{$anime->total_episodes}}</td>
+                                <td style="width: 6%; color: #CCC20D;">{{count($anime->getStreams)}}/{{$anime->total_episodes}}</td>
                                 <td style="width: 8%;">{{$anime->getType->name}}</td>
                                 <td style="width: 10%; color: #33CC08;">{{$anime->getStatus->name}}</td>
                             </tr>
