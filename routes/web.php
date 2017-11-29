@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "FrontEndController@home")->name("front.home");
+Route::get('/anime', "FrontEndController@anime")->name("front.anime");

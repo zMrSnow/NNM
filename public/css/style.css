@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+body, .container  {
+    background-color: #333333;
+}
+.container-fluid {
+    margin-top: 25px;
+}
+.hide-overflow-y {
+    overflow-y: hidden;
+}
+
+.bg-black {
+    background-color: #262525;
+}
+.alerts {
+    margin: 25px auto;
+}
+.alert-danger {
+    background-color: #4E2020;
+    border: 1px solid #682222;
+    color: #93928F;
+}
+.btn-outline-danger:hover {
+    background-color: #4E2020;
+    color: #93928F
+}
+.anime-abeceda {
+    background-color: #262525;
+}
+.anime-pismenka {
+    background-color: #1D80A0;
+}
+
+.center {
+    margin: 15px auto;
+}
+
+
+.card-edited {
+    background-color: #262525;
+    color: whitesmoke;
+}
+.card-edited ul{
+    color: #000000;
+    background-color: #a0a0a0;
+}
+.card-edited ul li a {
+    color: #000000;
+}
+.card-edited ul li a:hover {
+    color: #444482;
+}
+.card-lang {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    border-radius: 0;
+}
+
+tr:hover th[scope="row"] {
+    color: #ff5d71!important;
+<<<<<<< HEAD
+}
+
+
+.news-box {
+    background-color: #212529;
+    color: #93928F!important;
+    margin: 5px;
+    padding-bottom: 15px;
+}
+.news-box-abs {
+    position: absolute;
+    top: -1%;
+    right: 14%;
+}
+
+btitle {
+    font-size: 21px;
+    font-weight: 500;
+}
+
+
+
+
+footer {
+    background-color: #212529;
+    color: #93928F;
+    margin-top: 25px;
+=======
+>>>>>>> master
+}
