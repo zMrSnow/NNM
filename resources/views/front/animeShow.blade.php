@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <table class="table table-dark table-hover table-edited">
+        <table class="table table-dark table-hover table-edited table-responsive">
             <tbody>
             @forelse($anime->getStreams as $item)
 
@@ -117,4 +117,4 @@
 @section("js")
 
 
-@endsection
+@stop

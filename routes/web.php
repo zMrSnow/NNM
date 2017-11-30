@@ -19,6 +19,10 @@ Route::get('/anime/{id}', 'AnimeController@show')->name('anime.show');
 
 // register
 Route::post('/auth/register', 'CustomAuthController@postRegister')->name('auth.register');
+// login
+Route::post('/auth/login', 'CustomAuthController@postLogin')->name('auth.login');
+// logout
+Route::get('/auth/logout', 'CustomAuthController@logOut')->name('auth.logout');
 
 
 

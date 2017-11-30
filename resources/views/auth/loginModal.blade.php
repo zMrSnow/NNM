@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                {!! Form::open( ['route' => 'front.home', 'method' => 'post', 'class' => ''] ) !!}
+                {!! Form::open( ['route' => 'auth.login', 'method' => 'post', 'class' => ''] ) !!}
                 <div class="form-group">
                     {!! Form::label('email', 'Email:') !!}
                     {!! Form::email( 'email', null, [

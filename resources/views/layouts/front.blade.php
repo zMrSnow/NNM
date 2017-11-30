@@ -42,9 +42,20 @@
                 </li>
             </ul>
             @if(Auth::check())
-
+                <div class="pull-right">
+                    <ul class="nav pull-right">
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b
+                                        class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href=""><i class="icon-cog"></i> Preferences</a></li>
+                                <li><a href=""><i class="icon-envelope"></i> Contact Support</a></li>
+                                <li class="divider"></li>
+                                <li><a href=""><i class="icon-off"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             @else
-
                 <ul class="navbar-nav  text-white flex-md-row ">
                     <li class="nav-item">
                         <a href="" class="nav-link" data-toggle="modal" data-target="#loginModal">Prihlásiť sa</a>
@@ -53,11 +64,10 @@
                         <a href="" class="nav-link" data-toggle="modal" data-target="#registerModal">Registrácia</a>
                     </li>
                 </ul>
-
             @endif
 
-            @extends("auth.loginModal")
-            @extends("auth.registerModal")
+            @include("auth.loginModal")
+            @include("auth.registerModal")
 
             {{--<form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Vyhľadávanie">
@@ -91,7 +101,7 @@
     @endif
     @if(session('registered'))
         <div class="alert alert-success hide-overflow-y" role="alert">
-            Úspešne si sa zaregistroval! Gratulujeme a vitaj u nas :).
+            {{session('registered')}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" class="text-dark">&times;</span>
             </button>
@@ -107,11 +117,6 @@
     <div class="clearfix"></div>
     <div class="row justify-content-around container-fluid" style="margin-bottom: 25px">
         @yield("footer")
-        <a href="//www.dmca.com/Protection/Status.aspx?ID=5a615538-213b-4fa3-a8d2-170c4533dc77"
-           title="DMCA.com Protection Status" class="dmca-badge"> <img
-                    src="//images.dmca.com/Badges/dmca_protected_sml_120i.png?ID=5a615538-213b-4fa3-a8d2-170c4533dc77"
-                    alt="DMCA.com Protection Status"></a>
-        <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
         <a href="https://www.toplist.cz">
             <script language="JavaScript" type="text/javascript">
                 <!--
@@ -119,9 +124,12 @@
                     escape(document.referrer) + '&t=' + escape(document.title) +
                     '&wi=' + escape(window.screen.width) + '&he=' + escape(window.screen.height) + '&cd=' +
                     escape(window.screen.colorDepth) + '" width="88" height="60" border=0 alt="TOPlist" />');
-                //--></script>
-            <noscript><img src="https://toplist.cz/count.asp?id=1770149&logo=mc" border="0"
-                           alt="TOPlist" width="88" height="60"/></noscript>
+                //-->
+            </script>
+            <noscript>
+                <img src="https://toplist.cz/count.asp?id=1770149&logo=mc" border="0" alt="TOPlist" width="88"
+                     height="60"/>
+            </noscript>
         </a>
     </div>
 </footer>
@@ -138,7 +146,7 @@
     })
 </script>
 
-@extends("layouts.chat")
+@include("layouts.chat")
 @yield("js")
 </body>
 </html>

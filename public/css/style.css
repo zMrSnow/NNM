@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    position: relative;
     overflow-x: hidden;
 }
 body, .container  {
@@ -12,6 +11,9 @@ body, .container  {
 }
 .hide-overflow-y {
     overflow-y: hidden;
+}
+.hide-overflow-x {
+    overflow-x: hidden;
 }
 
 .bg-black {

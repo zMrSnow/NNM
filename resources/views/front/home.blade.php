@@ -1,9 +1,7 @@
 @extends("layouts.front")
 
-
 @section("title", "Domov")
-
-@extends("front.slider")
+@include("front.slider")
 
 @section("content")
 
