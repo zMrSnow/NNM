@@ -12,6 +12,7 @@
 */
 
 Route::get('/', "FrontEndController@home")->name("front.home");
+Route::get('/nekonomagic', "FrontEndController@home")->name("front.home");
 Route::get('/anime', "FrontEndController@anime")->name("front.anime");
 
 Route::get('/anime/{id}', 'AnimeController@show')->name('anime.show');

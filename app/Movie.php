@@ -8,17 +8,27 @@ class Movie extends Model
 {
 
     protected $fillable = ["title", "year", "description", "img", "type", "total_episodes", "start",
-        "stop", "akihabara", "csfd", "status_id"];
+        "stop", "akihabara", "triler", "csfd", "status_id"];
 
-
+    // GET
     public function getTitleAttribute($value) {
         return ucfirst($value);
     }
+    public function getStartAttribute($value) {
+        return date("F j, Y", strtotime($value)); //September 30th, 2013;
+    }
+    public function getStopAttribute($value) {
+        return date("F j, Y", strtotime($value)); //September 30th, 2013;
+    }
+
+    // SET
     public function setTitleAttribute($value) {
         return ucfirst($value);
     }
 
 
+
+    // Methods
     public function getStatus() {
         return $this->belongsTo(Status::class, "status_id");
     }

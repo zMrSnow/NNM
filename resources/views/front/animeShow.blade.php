@@ -8,8 +8,8 @@
     <main class="container anime-info">
         <h1 class="hide-overflow-y text-center">{{$anime->title}}</h1>
         <div class="row justify-content-around">
-            <img src="{{$anime->img}}" alt="" class="img-responsive" height="400">
-            <ul class="col-md-6">
+            <img src="{{$anime->img}}" alt="" class="img-responsive" height="400" style="padding-left: 10px">
+            <ul class="col-md-5">
                 <li><b>Názov anime:</b> {{$anime->title}}</li>
                 <li><b>Rok vydania anime:</b> {{$anime->year}}</li>
                 <li><b>Začiatok vysielania:</b> {{$anime->start}}</li>
@@ -19,15 +19,29 @@
                 <ul>
                     <br>
                     <li><b>Žánre: </b></li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
-                    <li class="badge badge-danger">Čoskoro</li>
+                    @forelse($anime->getGenres as $genre)
+                        <li class="badge badge-danger">{{$genre->name}}</li>
+                    @empty
+                        <li class="badge badge-danger">Žánre neboli ešte pridané</li>
+                    @endforelse
                 </ul>
             </ul>
+            <div class="clearfix"></div>
+
+
+        </div>
+
+        <p class="text-center">
+            <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                Ukážka - Triler
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body text-center">
+                <iframe height="550" src="https://www.youtube.com/embed/{{$anime->triler}}" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
         </div>
 
         <table class="table table-dark table-hover table-edited">
@@ -72,6 +86,18 @@
             @endforelse
             </tbody>
         </table>
+        <form class="starrating risingstar d-flex justify-content-center flex-row-reverse col-md-12 ">
+            <input type="radio" id="star5" name="rating" value="5"/>
+            <label for="star5" title="5 hviezdičky"></label>
+            <input type="radio" id="star4" name="rating" value="4"/>
+            <label for="star4" title="4 hviezdičky"></label>
+            <input type="radio" id="star3" name="rating" value="3"/>
+            <label for="star3" title="3 hviezdičky"></label>
+            <input type="radio" id="star2" name="rating" value="2"/>
+            <label for="star2" title="2 hviezdičky"></label>
+            <input type="radio" id="star1" name="rating" value="1"/>
+            <label for="star1" title="1 hviezdička"></label>
+        </form>
         <p class="text-center">
             Preklady a streamy niesu umiestnené na našom servery, nenesieme žiadnu
             zodpovednosť za poršenie autorkých práv, na našom servery je iba text popripade iframe ktory nieje na nasom

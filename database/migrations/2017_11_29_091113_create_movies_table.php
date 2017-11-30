@@ -24,6 +24,7 @@ class CreateMoviesTable extends Migration
             $table->date("start")->nullable();
             $table->date("stop")->nullable();
             $table->string("akihabara")->nullable();
+            $table->string("triler")->nullable();
             $table->string("csfd")->nullable();
             $table->integer("status_id")->unsigned();
             $table->timestamps();
