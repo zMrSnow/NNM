@@ -1,6 +1,7 @@
 @extends("layouts.front")
 
 
+
 @section("content")
 
     <div class="card text-center anime-abeceda hide-overflow-y">
@@ -34,9 +35,8 @@
             @if($leater =="F" || $leater == "I" || $leater == "N")
                 <div class="card text-center anime-pismenka hide-overflow-y">
                     <div class="card-header anime-pismenka">
-                        <strong>
+                        <strong id="anime-{{$leater}}">
                             {{$leater}}
-
                         </strong>
                     </div>
                 </div>

@@ -35,6 +35,9 @@ body, .container  {
 .anime-pismenka {
     background-color: #1D80A0;
 }
+.anime-slider {
+    transform: scale(2) !important;
+}
 
 .anime-info {
     background-color: #262525;
@@ -100,7 +103,10 @@ btitle {
     margin-left: 10px
 }
 
-
+.modal-content {
+    background-color: #212529;
+    color: #93928F;
+}
 
 
 footer {
@@ -108,6 +114,10 @@ footer {
     color: #93928F;
     margin-top: 25px;
 }
+
+
+
+
 
 
 /***

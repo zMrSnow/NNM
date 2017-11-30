@@ -17,3 +17,4 @@ Route::get('/anime', "FrontEndController@anime")->name("front.anime");
 
 Route::get('/anime/{id}', 'AnimeController@show')->name('anime.show');
 
+

@@ -39,35 +39,25 @@
                     <a class="nav-link" href="#">Kontakt</a>
                 </li>
             </ul>
-            <ul class="navbar-nav right text-white row">
-                <li class="nav-item">
-                    <a href="" class="nav-link" data-toggle="modal" data-target="#loginModel">Prihlásiť sa</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"> Zaregistrovať sa</a>
-                </li>
-            </ul>
+            @if(Auth::check())
 
-            <!-- Modal -->
-            <div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Prihlásiť sa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+            @else
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <ul class="navbar-nav right text-white row">
+                    <li class="nav-item">
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#loginModal">Prihlásiť sa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#registerModal"> Zaregistrovať
+                            sa</a>
+                    </li>
+                </ul>
+
+            @endif
+
+            @extends("auth.loginModal")
+            @extends("auth.registerModal")
+
             {{--<form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Vyhľadávanie">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Hľadať</button>
@@ -76,6 +66,11 @@
     </nav>
 
 </header>
+
+
+
+
+@yield("slider")
 
 <div class="container alerts">
     <div class="alert alert-danger" role="alert">
@@ -86,8 +81,6 @@
     </div>
 </div>
 
-
-@yield("slider")
 
 @yield("content")
 
@@ -116,16 +109,18 @@
 </footer>
 
 
-<script src = "{{asset("js/jquery-3.2.1.min.js")}}" ></script>
+<script src="{{asset("js/jquery-3.2.1.min.js")}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
         integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
 <script src="{{asset("js/bootstrap4/bootstrap.min.js")}}"></script>
-
-<script id="cid0020000172971669527" data-cfasync="false" async src="https://st.chatango.com/js/gz/emb.js"
-        style="width: 212px;height: 300px;">
-    {"handle":"nekonomagic","arch":"js","styles":{"a":"663333","b":100,"c":"FFFFFF","d":"FFFFFF","k":"663333","l":"663333","m":"663333","n":"FFFFFF","p":"10","q":"663333","r":100,"pos":"br","cv":1,"cvbg":"663333","cvw":212,"cvh":31,"ticker":1,"fwtickm":1}}
+<script>
+    $('.carousel').carousel({
+        interval: 10000
+    })
 </script>
+
+@extends("layouts.chat")
 @yield("js")
 </body>
 </html>
