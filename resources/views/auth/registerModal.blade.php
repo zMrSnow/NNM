@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                {!! Form::open( ['route' => 'front.home', 'method' => 'post', 'class' => ''] ) !!}
+                {!! Form::open( ['route' => 'auth.register', 'method' => 'post', 'class' => ''] ) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Prezívka:') !!}
                     {!! Form::text( 'name', null, [
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     {!! Form::button( 'Zaregistrovať sa', [
                         'type' => 'submit',
-                        'class' => 'btn btn-outline-danger'
+                        'class' => 'btn btn-block btn-outline-danger'
                     ]) !!}
                 </div>
 

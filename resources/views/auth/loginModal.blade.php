@@ -39,7 +39,7 @@
                 <div class="form-group">
                     {!! Form::button( 'Prihlásiť sa', [
                         'type' => 'submit',
-                        'class' => 'btn btn-outline-success'
+                        'class' => 'btn btn-block btn-outline-success'
                     ]) !!}
                 </div>
 

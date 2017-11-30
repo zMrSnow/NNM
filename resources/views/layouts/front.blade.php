@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{{asset("css/bootstrap4/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
-    <title>@yield("title", "NekoNoMagic - prekladateľská skupina")</title>
+    <title>
+        @yield("title", "NekoNoMagic - prekladateľská skupina")
+    </title>
 </head>
 <body>
 
@@ -43,13 +45,12 @@
 
             @else
 
-                <ul class="navbar-nav right text-white row">
+                <ul class="navbar-nav  text-white flex-md-row ">
                     <li class="nav-item">
                         <a href="" class="nav-link" data-toggle="modal" data-target="#loginModal">Prihlásiť sa</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link" data-toggle="modal" data-target="#registerModal"> Zaregistrovať
-                            sa</a>
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#registerModal">Registrácia</a>
                     </li>
                 </ul>
 
@@ -68,8 +69,6 @@
 </header>
 
 
-
-
 @yield("slider")
 
 <div class="container alerts">
@@ -79,6 +78,25 @@
             <span aria-hidden="true" class="text-light">&times;</span>
         </button>
     </div>
+    @if(count($errors) > 0)
+        @forelse($errors->all() as $error)
+            <div class="alert alert-warning hide-overflow-y" role="alert">
+                {{ $error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="text-dark">&times;</span>
+                </button>
+            </div>
+        @empty
+        @endforelse
+    @endif
+    @if(session('registered'))
+        <div class="alert alert-success hide-overflow-y" role="alert">
+            Úspešne si sa zaregistroval! Gratulujeme a vitaj u nas :).
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-dark">&times;</span>
+            </button>
+        </div>
+    @endif
 </div>
 
 
