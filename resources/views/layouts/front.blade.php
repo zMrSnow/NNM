@@ -42,18 +42,25 @@
                 </li>
             </ul>
             @if(Auth::check())
-                <div class="pull-right">
-                    <ul class="nav pull-right">
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b
-                                        class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href=""><i class="icon-cog"></i> Preferences</a></li>
-                                <li><a href=""><i class="icon-envelope"></i> Contact Support</a></li>
-                                <li class="divider"></li>
-                                <li><a href=""><i class="icon-off"></i> Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div class="btn-group pr-5 mr-3">
+                    <button type="button" class="btn user-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Vitaj, {{Auth::user()->name}}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-left">
+                        <a href="" class="dropdown-item">
+                            <span class="fa fa-user"></span>
+                            Profil
+                        </a>
+                        <a href="" class="dropdown-item">
+                            <span class="fa fa-gear"></span>
+                            Nastavenia
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{route("auth.logout")}}" class="dropdown-item">
+                            <span class="fa fa-power-off"></span>
+                            Odhlásiť sa
+                        </a>
+                    </div>
                 </div>
             @else
                 <ul class="navbar-nav  text-white flex-md-row ">
@@ -90,7 +97,7 @@
     </div>
     @if(count($errors) > 0)
         @forelse($errors->all() as $error)
-            <div class="alert alert-warning hide-overflow-y" role="alert">
+            <div class="alert alert-warning" role="alert">
                 {{ $error }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" class="text-dark">&times;</span>
@@ -100,7 +107,7 @@
         @endforelse
     @endif
     @if(session('registered'))
-        <div class="alert alert-success hide-overflow-y" role="alert">
+        <div class="alert alert-success" role="alert">
             {{session('registered')}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" class="text-dark">&times;</span>

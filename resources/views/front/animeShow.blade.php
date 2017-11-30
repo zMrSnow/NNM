@@ -6,7 +6,7 @@
 @section("content")
 
     <main class="container anime-info">
-        <h1 class="hide-overflow-y text-center">{{$anime->title}}</h1>
+        <h1 class=" text-center">{{$anime->title}}</h1>
         <div class="row justify-content-around">
             <img src="{{$anime->img}}" alt="" class="img-responsive" height="400" style="padding-left: 10px">
             <ul class="col-md-5">
@@ -82,7 +82,7 @@
                 </tr>
 
             @empty
-                <h1 class="text-center hide-overflow-y">Toto anime ešte nemá pridané epizódy.</h1>
+                <h1 class="text-center">Toto anime ešte nemá pridané epizódy.</h1>
             @endforelse
             </tbody>
         </table>

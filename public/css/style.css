@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 body, .container  {
     background-color: #333333;
@@ -12,7 +11,7 @@ body, .container  {
 .hide-overflow-y {
     overflow-y: hidden;
 }
-.hide-overflow-x {
+.hide-overflow-x, footer {
     overflow-x: hidden;
 }
 
@@ -107,6 +106,11 @@ btitle {
 
 .modal-content {
     background-color: #212529;
+    color: #93928F;
+}
+
+.user-menu {
+    background-color: #262525;
     color: #93928F;
 }
 

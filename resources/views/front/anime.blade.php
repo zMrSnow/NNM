@@ -4,7 +4,7 @@
 
 @section("content")
 
-    <div class="card text-center anime-abeceda hide-overflow-y">
+    <div class="card text-center anime-abeceda">
         <div class="card-header anime-abeceda ">
             <?php $leater = 'A'; ?>
             @for($i = 0; $i < 26; $i++)
@@ -19,7 +19,7 @@
     <div class="clearfix"></div>
 
     <div class="container-fluid">
-        <table class="table table-dark table-hover table-edited">
+        <table class="table table-dark table-hover table-edited table-responsive">
             <thead>
             <tr class="text-left">
                 <th style="width: 70%;">Názov anime</th>
@@ -33,7 +33,7 @@
         <?php $leater = 'A'; ?>
         @for($i = 0; $i < 26; $i++)
             @if($leater =="F" || $leater == "I" || $leater == "N")
-                <div class="card text-center anime-pismenka hide-overflow-y">
+                <div class="card text-center anime-pismenka">
                     <div class="card-header anime-pismenka">
                         <strong id="anime-{{$leater}}">
                             {{$leater}}
@@ -41,13 +41,13 @@
                     </div>
                 </div>
 
-                <table class="table table-dark table-hover table-edited">
+                <table class="table table-dark table-hover table-edited table-responsive">
                     <tbody>
                     @forelse($animes as $anime)
 
                         @if($anime->title[0] == $leater)
                             <tr class="clickable-row text-left" data-href="{{route("anime.show", $anime->id)}}">
-                                <th scope="row" style="width: 70%; color: #899496;">{{$anime->title}}</th>
+                                <th scope="row" style="width: 74%; color: #899496;">{{$anime->title}}</th>
                                 <td style="width: 6%; color: #1D80A0;">{{$anime->year}}</td>
                                 <td style="width: 6%; color: #CCC20D;">{{count($anime->getStreams)}}/{{$anime->total_episodes}}</td>
                                 <td style="width: 8%;">{{$anime->getType->name}}</td>
